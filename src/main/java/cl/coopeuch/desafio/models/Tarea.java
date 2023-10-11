@@ -9,7 +9,6 @@ import java.util.Date;
 
 @Entity
 public class Tarea {
-
     @Id
     @GeneratedValue(strategy= GenerationType.AUTO)
     private Long id;
@@ -19,6 +18,14 @@ public class Tarea {
     private Date fechaCreacion;
 
     private boolean vigente;
+
+    protected Tarea() {}
+
+    public Tarea(String descripcion, boolean vigente) {
+        this.descripcion = descripcion;
+        this.fechaCreacion = new Date();
+        this.vigente = vigente;
+    }
 
     public Long getId() {
         return id;
