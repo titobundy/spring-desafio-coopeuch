@@ -37,6 +37,6 @@ Con maven podemos iniciar la aplicación con el comando:
 
 Listado de endpoints disponibles y sus operaciones:
 
--  (/tareas) operaciones permitidas sobre el recurso (GET, POST, PUT, DELETE)
+-  (/api/v1/tareas) operaciones permitidas sobre el recurso (GET, POST, PUT, DELETE)
 
 [Swagger](http://localhost:8080/api/v1/api-docs/index.html)
