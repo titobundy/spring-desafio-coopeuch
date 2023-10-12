@@ -6,7 +6,9 @@ Prueba Tecnica Backend Java
 
 Esta proyecto fue construido utilizando Spring Boot 3, Maven, y requiere de Java en su versión 17.
 Además por simplicidad utiliza la base de datos en memoria H2 por lo que se deberán cargar datos utilizando 
-el endpoint de creación de la api. Para más detalle consulte la sección [Swagger](#Documentación-API)
+el endpoint de creación de la api. Para más detalle consulte la sección [Swagger](#Documentación-API).
+
+Se adjunta una colección para importar en postman de manera de efectuar pruebas de la api.
 
 ### Opción 1
 
