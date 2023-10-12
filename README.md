@@ -25,7 +25,13 @@ Con maven podemos iniciar la aplicación con el comando:
 ./mvnw spring-boot:run
 ```
 
-### Documentación API
+## Ejecución de test
+
+```
+./mvnw test
+```
+
+## Documentación API
 
 Listado de endpoints disponibles y sus operaciones:
 
