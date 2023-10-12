@@ -4,10 +4,16 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import lombok.EqualsAndHashCode;
+import lombok.Getter;
+import lombok.Setter;
 
-import java.util.Date;
+import java.time.LocalDate;
 
 @Entity
+@Getter
+@Setter
+@EqualsAndHashCode
 public class Tarea {
     @Id
     @GeneratedValue(strategy= GenerationType.AUTO)
@@ -15,7 +21,7 @@ public class Tarea {
 
     private String descripcion;
 
-    private Date fechaCreacion;
+    private LocalDate fechaCreacion;
 
     private boolean vigente;
 
@@ -23,39 +29,7 @@ public class Tarea {
 
     public Tarea(String descripcion, boolean vigente) {
         this.descripcion = descripcion;
-        this.fechaCreacion = new Date();
-        this.vigente = vigente;
-    }
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public String getDescripcion() {
-        return descripcion;
-    }
-
-    public void setDescripcion(String descripcion) {
-        this.descripcion = descripcion;
-    }
-
-    public Date getFechaCreacion() {
-        return fechaCreacion;
-    }
-
-    public void setFechaCreacion(Date fechaCreacion) {
-        this.fechaCreacion = fechaCreacion;
-    }
-
-    public boolean isVigente() {
-        return vigente;
-    }
-
-    public void setVigente(boolean vigente) {
+        this.fechaCreacion = LocalDate.now();
         this.vigente = vigente;
     }
 }

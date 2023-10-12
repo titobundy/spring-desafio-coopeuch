@@ -1,5 +1,6 @@
 package cl.coopeuch.desafio.services;
 
+import cl.coopeuch.desafio.controllers.TareaRequest;
 import cl.coopeuch.desafio.exceptions.NotFoundException;
 import cl.coopeuch.desafio.models.Tarea;
 import cl.coopeuch.desafio.repositories.TareaRepository;
@@ -16,8 +17,9 @@ public class TareaServiceImpl implements TareaService {
     private final TareaRepository tareaRepository;
 
     @Override
-    public Tarea createTarea(Tarea tarea) {
-        return tareaRepository.save(tarea);
+    public Tarea createTarea(@NonNull TareaRequest tarea) {
+        Tarea entity = new Tarea(tarea.descripcion(), tarea.vigente());
+        return tareaRepository.save(entity);
     }
 
     @Override
@@ -32,11 +34,10 @@ public class TareaServiceImpl implements TareaService {
     }
 
     @Override
-    public Tarea updateTarea(Tarea tarea) {
-        Tarea updatedTarea = this.getTareaById(tarea.getId());
-        updatedTarea.setDescripcion(tarea.getDescripcion());
-        updatedTarea.setFechaCreacion(tarea.getFechaCreacion());
-        updatedTarea.setVigente(tarea.isVigente());
+    public Tarea updateTarea(@NonNull Long id, @NonNull TareaRequest request) {
+        Tarea updatedTarea = this.getTareaById(id);
+        updatedTarea.setDescripcion(request.descripcion());
+        updatedTarea.setVigente(request.vigente());
         tareaRepository.save(updatedTarea);
         return updatedTarea;
     }

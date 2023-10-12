@@ -2,6 +2,7 @@ package cl.coopeuch.desafio.controllers;
 
 import cl.coopeuch.desafio.models.Tarea;
 import cl.coopeuch.desafio.services.TareaService;
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
@@ -27,14 +28,13 @@ public class TareaController {
 
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
-    public Tarea createTarea(@RequestBody Tarea tarea) {
+    public Tarea createTarea(@Valid @RequestBody TareaRequest tarea) {
         return tareaService.createTarea(tarea);
     }
 
     @PutMapping("{id}")
-    public Tarea updateTarea(@PathVariable("id") Long id, @RequestBody Tarea tarea) {
-        tarea.setId(id);
-        return tareaService.updateTarea(tarea);
+    public Tarea updateTarea(@PathVariable("id") Long id, @Valid @RequestBody TareaRequest request) {
+        return tareaService.updateTarea(id, request);
     }
 
     @DeleteMapping("{id}")
